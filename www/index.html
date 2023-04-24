@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito:wght@200;300;400;500;600;700;800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+        <!-- <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js" integrity="sha256-Lsk+CDPOzTapLoAzWW0G/WeQeViS3FMzywpzPZV8SXk=" crossorigin="anonymous"></script> -->
+
+        <link rel="stylesheet" href="onsenui/css/onsenui.css">
+        <link rel="stylesheet" href="onsenui/css/onsen-css-components.min.css">
+        <script src="onsenui/js/onsenui.min.js"></script> 
+                <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+        <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+        <title>Scheduled Reads</title>
+    </head>
+    <body>
+        <ons-page> 
+            <ons-toolbar>   
+                <div>
+                    <h1 class="appTitle">Scheduled Reads</h1>
+                </div>  
+            </ons-toolbar>
+            <ons-tabbar swipeable position="bottom"> 
+                <!--на page ако трябва да води към страница, id пренавочва към същата страница темплейт; иконките как да изглежда в ios и как в андроид-->   
+                <ons-tab page="home.html" label="Home" icon="ion-ios-home, material:md-home" active>    </ons-tab>    
+                <ons-tab page="add.html" label="Add" icon="ion-ios-add, add">    </ons-tab>
+                <ons-tab page="search.html" label="Search" icon="ion-ios-search, material:md-search">    </ons-tab>
+            </ons-tabbar>
+        </ons-page>
+        <template id="home.html">
+            <ons-page id="Home" class="page background"><!--в темплейта задължително трябва да има ons-page-->
+                <h4>Current reads</h4>
+                <div class="form">
+                    <ons-list modifier="inset" class="bookItems" id="bookItems">
+                        <h5>No current reads</h5>
+                    </ons-list>
+                </div>
+            </ons-page>
+        </template>
+        <template id="add.html">
+            <ons-page id="Add" class="page background">
+                <h4>Add Book</h4>
+                <div class="form">
+                    <ons-input type="text" class="inpBookTitle" input-id="inpBookTitle" modifier="underbar" placeholder="Book Title" float></ons-input>
+                    <ons-input type="number" class="inpBookPages" input-id="inpBookPages" modifier="underbar" placeholder="Total Book Pages" float></ons-input>
+                    <ons-button class="inpBookImg">Upload Book Photo</ons-button>
+                    <ons-button modifier="large" class="submitBook">Add Book</ons-button>
+                </div>
+            </ons-page>
+        </template>
+        <template id="search.html">
+            <ons-page id="Search" class="page background">
+                <h4>Search Books</h4>
+                <div class="form">
+                    <ons-search-input placeholder="Search books" class="inpSearch"></ons-search-input>
+                    <ons-list modifier="inset" class="searchResults" id="searchItems">
+                        <h5>No results</h5>
+                    </ons-list>
+                </div>
+                
+            </ons-page>
+        </template>
+
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>

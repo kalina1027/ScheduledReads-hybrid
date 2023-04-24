@@ -1,0 +1,210 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+#deviceready.ready .event.listening { display: none; }
+#deviceready.ready .event.received { display: block; }
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+    body {
+        background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
+    }
+}
+ons-tabbar, .tabbar--material{
+    background-color: #513a61 !important;
+    
+}
+.tabbar__icon, .tabbar__label{
+    color: #f6e8ff !important;
+} 
+ons-toolbar.toolbar{
+    box-shadow: none;
+    background-color:#866e96;
+
+}
+.appTitle{
+    text-transform: capitalize;
+    margin:1rem;
+    color:white;
+    
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+h4{
+    text-transform: capitalize;
+    margin:1rem !important;
+    margin-bottom:2rem !important;
+    color: white;
+    font-family: 'Raleway' !important;
+}
+/* .page, .page__background {
+    /* background-color:green !important; */
+    /* background-color:transparent !important; */
+/* } */
+.list-item--material{
+    padding-left:0 !important;
+}
+.left, .center, .right{
+    /* margin:0 !important; */
+    padding:0.6rem 0.3rem !important;
+}
+.bookItem{
+    background-color: #f6e8ff;
+    padding:0;
+}
+.bookImg{
+    width: 45px;
+    height: 60px;
+    background-color:gray;
+}
+.bookTitle{
+    text-transform: capitalize;
+    font-size:1rem;
+    font-family: 'Raleway' !important;
+    font-weight: 500 !important;
+    color:#513a61 !important;
+}
+.bookPages{
+    color:#513a61 !important;
+    min-width:3rem !important;
+    padding-right:0.6rem !important;
+}
+.delete-icon{
+    color:#513a61 !important;
+}
+.list-item__icon{
+    width: 1.5rem;
+    text-align: center;
+    padding-top:0.6rem !important;
+    margin-left:1rem;
+    min-height: 1.7rem;
+}
+.form{
+    /* width: 95%; */
+    margin:0 1rem;
+}
+.form > *{
+    display: block;
+    margin-bottom:1rem;
+}
+.inpBookImg{
+    /* display: block !important; */
+    margin-bottom: 1rem !important;
+    font-family: 'Raleway' !important;
+    background-color: #513a61 !important;
+}
+.submitBook{
+    background-color: #866e96 !important;
+    font-family: 'Raleway' !important;
+}
+.page, .page__content, .page--material, .page--material__content{
+    background: #c7b4d4 !important;
+}
+.inpBookTitle span, .inpBookPages span{
+    color:white !important; 
+    background-color:#c7b4d4 !important; 
+    font-family: 'Raleway' !important;
+}
+.inpBookTitle input, .inpBookPages input{
+    background-color:#c7b4d4 !important; 
+    font-family: 'Raleway' !important;
+}
+.searchResults{
+    width:100%;
+    display: block;
+}
+.list--inset{
+    margin:0 !important;
+}
+.searchResults h5{
+    font-family: 'Raleway' !important;
+    text-transform: capitalize;
+    padding:0.6rem !important;
+}
+.dark{
+    background-color: #3a3140 !important;
+}
+.light{
+    color: white !important;
+}
